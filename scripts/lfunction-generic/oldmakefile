@@ -1,0 +1,13 @@
+INCLUDE=-I${HOME}/oldlocal/include -I/data/local/include -I${HOME}/primesieve-5.4.2/include
+LIBRARY=-L${HOME}/oldlocal/lib -L/data/local/lib -L${HOME}/primesieve-5.4.2/.libs
+HWLPOLY=
+#HWLPOLY=-lhwlpoly
+
+all: glfunc
+
+glfunc:	glfunc.cpp main.cpp defines.h utils.h structs.h error.h acb_fft.h coeffs.h artin.h g2_g3_ell.h modform.h turing.h upsample.h zeros.h div_zeros.h output.h ../andy_elliptic/pari.c
+	g++ -O2 glfunc.cpp  -o glfunc -finline-functions -fomit-frame-pointer -fopenmp ${INCLUDE} ${LIBRARY} -lgmp -lflint -larb -lm -lsmalljac -lff_poly -lpari -lprimesieve ${HWLPOLY}
+
+clean: 
+	rm -f glfunc
+

@@ -1,0 +1,16 @@
+// sample lpolys.h file for elliptic curve l-functions
+bool init_lpolys(char *str,uint64_t M, uint64_t prec)
+{
+  
+
+// this won't get called for elliptic curves
+bool init_inv_lpolys(char * str,uint64_t M, uint64_t prec)
+{
+  return(false);
+}
+
+bool get_lpoly(acb_poly_t *poly,uint64_t prec)
+{
+
+}
+bool get_inv_lpoly(acb_poly_t *,uint64_t);
